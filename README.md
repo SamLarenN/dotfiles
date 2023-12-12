@@ -21,3 +21,4 @@ chmod +x create-symbolic-links.sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
+Press `prefix` + `I` to fetch plugins
