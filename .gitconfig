@@ -1,0 +1,5 @@
+[user]
+	email = skoog.samuel@gmail.com
+	name = Samuel Skoog
+[core]
+	editor = nvim
