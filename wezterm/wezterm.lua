@@ -4,6 +4,11 @@ local act = wezterm.action
 
 if package.config:sub(1, 1) == "\\" then
 	config.default_prog = { "powershell.exe", "-NoLogo" }
+	config.window_background_opacity = 0
+	config.win32_system_backdrop = "Acrylic"
+else
+	config.window_background_opacity = 0.7
+	config.macos_window_background_blur = 10
 end
 
 local wez_tmux = wezterm.plugin.require("https://github.com/sei40kr/wez-tmux")
@@ -32,7 +37,6 @@ config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 
 -- Background
-config.window_background_opacity = 0.7
 config.window_decorations = "RESIZE"
 
 -- Tab bar
