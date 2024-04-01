@@ -4,8 +4,7 @@ local act = wezterm.action
 
 if package.config:sub(1, 1) == "\\" then
 	config.default_prog = { "powershell.exe", "-NoLogo" }
-	config.window_background_opacity = 0.7
-	config.win32_system_backdrop = "Acrylic"
+	config.window_background_opacity = 0.8
 else
 	config.window_background_opacity = 0.7
 	config.macos_window_background_blur = 10
@@ -32,6 +31,14 @@ config.leader = {
 }
 
 table.insert(config.keys, { key = "i", mods = "LEADER", action = act.SwitchToWorkspace })
+table.insert(
+	config.keys,
+	{ key = "-", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) }
+)
+table.insert(
+	config.keys,
+	{ key = "\\", mods = "LEADER", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) }
+)
 
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
@@ -62,7 +69,7 @@ wezterm.on("update-status", function(window, pane)
 	local cmd = basename(pane:get_foreground_process_name()) or ""
 
 	window:set_left_status(wezterm.format({
-		{ Text = " Wezzy" },
+		{ Text = " " .. wezterm.mux.get_active_workspace() },
 		{ Text = " | " },
 	}))
 
