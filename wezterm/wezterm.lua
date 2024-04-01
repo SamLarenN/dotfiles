@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 if package.config:sub(1, 1) == "\\" then
-	config.default_prog = { "powershell.exe", "-NoLogo" }
+	config.default_prog = { "C:\\Program Files\\Git\\bin\\sh.exe", "--login" }
 	config.window_background_opacity = 0.8
 else
 	config.window_background_opacity = 0.7
