@@ -4,7 +4,7 @@ local act = wezterm.action
 
 if package.config:sub(1, 1) == "\\" then
 	config.default_prog = { "powershell.exe", "-NoLogo" }
-	config.window_background_opacity = 0
+	config.window_background_opacity = 0.7
 	config.win32_system_backdrop = "Acrylic"
 else
 	config.window_background_opacity = 0.7
