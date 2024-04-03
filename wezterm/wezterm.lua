@@ -2,11 +2,13 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
+local opacity = 0.0
+
 if package.config:sub(1, 1) == "\\" then
 	config.default_prog = { "C:\\Program Files\\Git\\bin\\sh.exe", "--login" }
-	config.window_background_opacity = 0.8
+	opacity = 0.8
 else
-	config.window_background_opacity = 0.7
+	opacity = 0.7
 	config.macos_window_background_blur = 10
 end
 
@@ -45,12 +47,13 @@ config.send_composed_key_when_right_alt_is_pressed = true
 
 -- Background
 config.window_decorations = "RESIZE"
+config.window_background_opacity = opacity
 
 -- Text
 config.colors = {
 	tab_bar = {
-		background = "rgba(0,0,0,0.7)",
-		inactive_tab_edge = "rgba(0,0,0,0.7)",
+		background = "rgba(0,0,0," .. opacity .. ")",
+		inactive_tab_edge = "rgba(0,0,0," .. opacity .. ")",
 		active_tab = {
 			-- The color of the background area for the tab
 			bg_color = "rgba(0,0,0,1)",
@@ -60,12 +63,12 @@ config.colors = {
 		},
 		inactive_tab = {
 			-- The color of the background area for the tab
-			bg_color = "rgba(0,0,0,0.7)",
+			bg_color = "rgba(0,0,0," .. opacity .. ")",
 			-- The color of the text for the tab
 			fg_color = "#c0c0c0",
 		},
 		new_tab = {
-			bg_color = "rgba(0,0,0,0.7)",
+			bg_color = "rgba(0,0,0," .. opacity .. ")",
 			fg_color = "#c0c0c0",
 
 			-- The same options that were listed under the `active_tab` section above
