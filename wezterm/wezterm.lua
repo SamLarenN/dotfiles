@@ -46,6 +46,36 @@ config.send_composed_key_when_right_alt_is_pressed = true
 -- Background
 config.window_decorations = "RESIZE"
 
+-- Text
+config.colors = {
+	tab_bar = {
+		background = "rgba(0,0,0,0.7)",
+		inactive_tab_edge = "rgba(0,0,0,0.7)",
+		active_tab = {
+			-- The color of the background area for the tab
+			bg_color = "rgba(0,0,0,1)",
+			-- The color of the text for the tab
+			fg_color = "#ffffff",
+			underline = "Single",
+		},
+		inactive_tab = {
+			-- The color of the background area for the tab
+			bg_color = "rgba(0,0,0,0.7)",
+			-- The color of the text for the tab
+			fg_color = "#c0c0c0",
+		},
+		new_tab = {
+			bg_color = "rgba(0,0,0,0.7)",
+			fg_color = "#c0c0c0",
+
+			-- The same options that were listed under the `active_tab` section above
+			-- can also be used for `new_tab`.
+		},
+	},
+}
+
+-- Colors
+
 -- Tab bar
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
@@ -69,7 +99,7 @@ wezterm.on("update-status", function(window, pane)
 	local cmd = basename(pane:get_foreground_process_name()) or ""
 
 	window:set_left_status(wezterm.format({
-		{ Text = " " .. wezterm.mux.get_active_workspace() },
+		{ Text = "  " .. wezterm.mux.get_active_workspace() },
 		{ Text = " | " },
 	}))
 
