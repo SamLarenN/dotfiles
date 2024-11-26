@@ -11,10 +11,10 @@ return {
   config = function()
     require('codecompanion').setup {
       adapters = {
-        anthropic = function()
+        gemini = function()
           return require('codecompanion.adapters').extend('gemini', {
             env = {
-              api_key = 'AIzaSyD4i5D3T1Av1eSPhB1olmxUOAhK502Hbjk',
+              api_key = os.getenv 'GEMINI_API_KEY',
             },
           })
         end,

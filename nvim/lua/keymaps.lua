@@ -5,14 +5,6 @@
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 ---- resizing splits
 vim.keymap.set({ 'n', 'v' }, '<C-Left>', function()
   require('smart-splits').resize_left()
@@ -89,6 +81,9 @@ function SetGlobalMark()
 end
 
 vim.api.nvim_set_keymap('n', 'm', [[<Cmd>lua SetGlobalMark()<CR>]], { noremap = true, silent = true })
+
+-- Terminal mode
+vim.api.nvim_set_keymap('t', '<C-c>c', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- Remap the ' command in normal mode
 -- Ex. 'a -> 'A
