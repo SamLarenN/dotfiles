@@ -99,6 +99,8 @@ require 'options'
 -- [[ Basic Keymaps ]]
 require 'keymaps'
 
+require 'statusline'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 

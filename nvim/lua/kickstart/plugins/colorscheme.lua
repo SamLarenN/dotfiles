@@ -21,7 +21,6 @@ return {
           transparent = true,
         },
       }
-      vim.cmd 'colorscheme github_dark'
     end,
   },
   {
@@ -97,5 +96,14 @@ return {
     -- init = function()
     --   vim.cmd 'colorscheme candle-grey-transparent'
     -- end,
+  },
+  {
+    'aliqyan-21/darkvoid.nvim',
+    config = function()
+      require('darkvoid').setup {
+        transparent = true,
+      }
+      vim.cmd 'colorscheme darkvoid'
+    end,
   },
 }
