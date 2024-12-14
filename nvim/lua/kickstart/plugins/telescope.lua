@@ -57,14 +57,6 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
-          file_ignore_patterns = {
-            'node_modules',
-            'build',
-            'dist',
-            'vendor/*',
-            '.git/*',
-            'yarn.lock',
-          },
           mappings = {
             n = {
               ['d'] = require('telescope.actions').delete_buffer,
@@ -73,7 +65,28 @@ return {
         },
         pickers = {
           colorscheme = { enable_preview = true },
-          find_files = { hidden = true },
+          find_files = {
+            hidden = true,
+            file_ignore_patterns = {
+              'node_modules',
+              'build',
+              'dist',
+              'vendor/*',
+              '.git/*',
+              'yarn.lock',
+            },
+          },
+          live_grep = {
+            hidden = true,
+            file_ignore_patterns = {
+              'node_modules',
+              'build',
+              'dist',
+              'vendor/*',
+              '.git/*',
+              'yarn.lock',
+            },
+          },
         },
         extensions = {
           ['ui-select'] = {

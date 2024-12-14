@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-local opacity = 0.93
+local opacity = 0.8
 
 --if package.config:sub(1, 1) == "\\" then
 --	config.default_prog = { "C:\\Program Files\\Git\\bin\\sh.exe", "--login" }
@@ -202,82 +202,31 @@ function hex_to_rgb_string(hex)
 end
 
 -- Colors
--- local my_scheme = wezterm.color.get_builtin_schemes()["Github Dark (Gogh)"]
--- config.color_schemes = {
--- 	["My Scheme"] = my_scheme,
--- }
---config.color_scheme = "My Scheme"
-
-config.colors = {
-	-- darkvoid color scheme base
-	foreground = "#c0c0c0",
-	background = "#040709",
-
-	cursor_bg = "#c1c1c1",
-	cursor_fg = "#090a04",
-	cursor_border = "#7fbfff",
-	selection_fg = "#c0c0c0",
-	selection_bg = "#303030",
-	scrollbar_thumb = "#404040",
-
-	ansi = {
-		"#1c1c1c",
-		"#ff3131",
-		"#66b2b2",
-		"#d1d1d1",
-		"#4b8902",
-		"#b16286",
-		"#1bfd9c",
-		"#c0c0c0",
-	},
-
-	brights = {
-		"#404040",
-		"#fb4934",
-		"#b8bb26",
-		"#9efd84",
-		"#83a598",
-		"#d3869b",
-		"#8ec07c",
-		"#ebdbb2",
-	},
-
-	visual_bell = "#7fbfff",
-	tab_bar = {
-		background = "#1c1c1c",
-		active_tab = {
-			bg_color = "#303030",
-			fg_color = "#c0c0c0",
-		},
-		inactive_tab = {
-			bg_color = "#1c1c1c",
-			fg_color = "#585858",
-		},
-		inactive_tab_hover = {
-			bg_color = "#303030",
-			fg_color = "#c0c0c0",
-		},
-	},
+local my_scheme = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+config.color_schemes = {
+	["My Scheme"] = my_scheme,
 }
+config.color_scheme = "My Scheme"
+my_scheme.background = "#000000"
 
-config.colors.tab_bar = {
-	background = "rgba(" .. hex_to_rgb_string(config.colors.background) .. "," .. opacity .. ")",
-	inactive_tab_edge = "rgba(" .. hex_to_rgb_string(config.colors.background) .. "," .. opacity .. ")",
+my_scheme.tab_bar = {
+	background = "rgba(" .. hex_to_rgb_string(my_scheme.background) .. "," .. opacity .. ")",
+	inactive_tab_edge = "rgba(" .. hex_to_rgb_string(my_scheme.background) .. "," .. opacity .. ")",
 	active_tab = {
 		-- The color of the background area for the tab
-		bg_color = "rgba(" .. hex_to_rgb_string(config.colors.background) .. "," .. opacity .. ")",
-		fg_color = "rgba(" .. hex_to_rgb_string(config.colors.cursor_bg) .. "," .. opacity .. ")",
+		bg_color = "rgba(" .. hex_to_rgb_string(my_scheme.background) .. "," .. opacity .. ")",
+		fg_color = "rgba(" .. hex_to_rgb_string(my_scheme.cursor_bg) .. "," .. opacity .. ")",
 		underline = "Single",
 	},
 	inactive_tab = {
 		-- The color of the background area for the tab
-		bg_color = "rgba(" .. hex_to_rgb_string(config.colors.background) .. "," .. opacity .. ")",
+		bg_color = "rgba(" .. hex_to_rgb_string(my_scheme.background) .. "," .. opacity .. ")",
 		-- The color of the text for the tab
-		fg_color = "rgba(" .. hex_to_rgb_string(config.colors.cursor_bg) .. "," .. opacity .. ")",
+		fg_color = "rgba(" .. hex_to_rgb_string(my_scheme.cursor_bg) .. "," .. opacity .. ")",
 	},
 	new_tab = {
-		bg_color = "rgba(" .. hex_to_rgb_string(config.colors.background) .. "," .. opacity .. ")",
-		fg_color = "rgba(" .. hex_to_rgb_string(config.colors.cursor_bg) .. "," .. opacity .. ")",
+		bg_color = "rgba(" .. hex_to_rgb_string(my_scheme.background) .. "," .. opacity .. ")",
+		fg_color = "rgba(" .. hex_to_rgb_string(my_scheme.cursor_bg) .. "," .. opacity .. ")",
 
 		-- The same options that were listed under the `active_tab` section above
 		-- can also be used for `new_tab`.

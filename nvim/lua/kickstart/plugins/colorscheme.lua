@@ -9,6 +9,7 @@ return {
         flavour = 'frappe', -- latte, frappe, macchiato, mocha
         transparent_background = true,
       }
+      vim.cmd 'colorscheme catppuccin-frappe'
     end,
   },
   {
@@ -100,10 +101,10 @@ return {
   {
     'aliqyan-21/darkvoid.nvim',
     config = function()
-      require('darkvoid').setup {
-        transparent = true,
-      }
-      vim.cmd 'colorscheme darkvoid'
+      -- require('darkvoid').setup {
+      --   transparent = true,
+      -- }
+      -- vim.cmd 'colorscheme darkvoid'
     end,
   },
 }
