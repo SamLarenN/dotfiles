@@ -33,6 +33,9 @@ vim.keymap.set('n', '<leader>ws', '<C-w>s', { desc = 'Split horizontal' })
 vim.keymap.set('n', '<leader>wd', '<C-w>c', { desc = 'Close window' })
 vim.keymap.set('n', '<leader>we', '<C-w>=', { desc = 'Equalize windows' })
 
+-- Plugin management (vim.pack)
+vim.keymap.set('n', '<leader>pu', function() vim.pack.update() end, { desc = 'Update plugins' })
+
 -- Resize mode
 local resize_mode_active = false
 local resize_keys = { 'h', 'j', 'k', 'l', '<Esc>' }

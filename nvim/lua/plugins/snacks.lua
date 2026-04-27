@@ -35,6 +35,10 @@ vim.keymap.set('n', '<leader>sg', function()
   }
 end, { desc = 'Grep' })
 
+vim.keymap.set('n', '<leader>gf', function()
+  Snacks.picker.git_log_file()
+end, { desc = 'Git File History' })
+
 vim.keymap.set('n', 'gd', function()
   Snacks.picker.lsp_definitions()
 end, { desc = 'Go to definition' })

@@ -11,7 +11,7 @@ wk.add({
   { '<leader>n', group = 'Notes' },
   { '<leader>s', group = 'Search' },
   { '<leader>t', group = 'Test' },
-  { '<leader>u', group = 'UI' },
+{ '<leader>u', group = 'UI' },
   { '<leader>w', group = 'Windows' },
 
   -- Visual mode groups
